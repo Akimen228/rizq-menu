@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RIZQ Menu</title>
+  <meta name="description" content="Explore the RIZQ menu: Uzbek classics, steaks and Eastern sweets in a palace setting in Tashkent. Opening April 2027.">
+  <meta name="theme-color" content="#0F0C0A">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230F0C0A'/%3E%3Cg fill='none' stroke='%23C9A24A' stroke-width='2'%3E%3Cpath d='M13 13h38v38H13z'/%3E%3Cpath d='M32 5 59 32 32 59 5 32Z'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Montserrat:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: dark; --black: #0F0C0A; --panel: #1A1511; --gold: #C9A24A; --light-gold: #E6CF8B; --cream: #F2E8D5; --muted: #B9AD98; --rule: #5A4A2E; --serif: "Cormorant Garamond", Georgia, serif; --sans: "Montserrat", Arial, sans-serif; --nav-height: 96px; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+    body { position: relative; margin: 0; background: radial-gradient(ellipse at 15% 15%, #221C16 0, transparent 40%), var(--black); color: var(--cream); font-family: var(--sans); font-size: .85rem; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    body::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 5; opacity: .04; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23n)' d='M0 0h160v160H0z'/%3E%3C/svg%3E"); }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 2px solid var(--light-gold); outline-offset: 5px; }
+    ::selection { background: var(--gold); color: var(--black); }
+    h1, h2, p, ul { margin: 0; }
+    .container { width: min(760px, calc(100% - 40px)); margin-inline: auto; }
+    .kicker { color: var(--gold); font-size: .7rem; font-weight: 600; letter-spacing: .19em; text-transform: uppercase; line-height: 1.6; }
+    .star { width: 36px; height: 36px; fill: none; stroke: var(--gold); stroke-width: 2; opacity: .38; flex-shrink: 0; }
+    .svg-library { position: absolute; width: 0; height: 0; overflow: hidden; }
+    .hero { position: relative; min-height: 520px; display: grid; place-items: center; padding: 50px 20px 68px; text-align: center; background-image: linear-gradient(180deg, rgb(0 0 0 / .55), rgb(15 12 10 / .48) 40%, #0F0C0A 100%), url("img/01-facade.jpg"); background-size: cover; background-position: center 42%; }
+    .hero::before { content: ""; position: absolute; inset: 20px 20px 44px; border: 1px solid rgb(201 162 74 / .28); border-bottom: 0; pointer-events: none; mask-image: linear-gradient(#000 65%, transparent); }
+    .hero-content { position: relative; width: min(100%, 760px); }
+    .hero-ornament { display: flex; align-items: center; justify-content: center; gap: 18px; margin-bottom: 23px; }
+    .hero-ornament::before, .hero-ornament::after { content: ""; width: 64px; height: 1px; background: rgb(201 162 74 / .4); }
+    .hero .star { width: 44px; height: 44px; }
+    .hero .kicker { color: var(--light-gold); font-size: .63rem; letter-spacing: .24em; }
+    h1 { font: 600 4.5rem/1.12 var(--serif); letter-spacing: .3em; padding-left: .3em; margin-top: 13px; text-shadow: 0 2px 28px #000; }
+    .slogan { max-width: 340px; margin: 14px auto 30px; color: var(--light-gold); font: italic 400 1.6rem/1.25 var(--serif); text-wrap: balance; }
+    .hero .menu-label { color: var(--cream); font-size: .65rem; letter-spacing: .2em; }
+    .opening { margin-top: 19px; color: var(--muted); font-size: .62rem; letter-spacing: .15em; text-transform: uppercase; }
+    .category-nav { position: sticky; top: 0; z-index: 10; border-block: 1px solid rgb(201 162 74 / .24); background: rgb(15 12 10 / .96); backdrop-filter: blur(16px); }
+    .nav-label { display: flex; justify-content: space-between; padding-top: 10px; font-size: .58rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+    .nav-label span:first-child { color: var(--gold); }
+    .nav-track { max-width: 800px; margin: auto; display: flex; gap: 8px; overflow-x: auto; padding: 9px 20px 12px; scrollbar-width: thin; scrollbar-color: var(--rule) transparent; }
+    .nav-track a { flex: 0 0 auto; padding: 8px 13px; border: 1px solid rgb(90 74 46 / .65); border-radius: 3px; color: var(--muted); font-size: .68rem; font-weight: 500; white-space: nowrap; line-height: 1.5; transition: color .2s, border-color .2s, background .2s; }
+    .nav-track a:hover, .nav-track a[aria-current] { color: var(--light-gold); border-color: var(--gold); background: rgb(201 162 74 / .09); }
+    main { padding-top: 10px; }
+    section, footer { scroll-margin-top: 16px; }
+    .menu-section { padding-top: 35px; }
+    .section-head { margin-bottom: 8px; }
+    .title-line { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--rule); padding: 5px 0 13px; }
+    h2 { font: 500 2rem/1.1 var(--serif); text-wrap: balance; }
+    .unit { color: var(--muted); font-size: .6rem; letter-spacing: .12em; flex-shrink: 0; }
+    .section-note { margin-top: 13px; color: var(--muted); font-size: .77rem; }
+    .dishes { padding: 0; list-style: none; }
+    .dish { padding: 19px 0 18px; border-bottom: 1px solid rgb(90 74 46 / .2); }
+    .dish:last-child { border-bottom: 0; }
+    .dish-line { display: flex; align-items: baseline; gap: 9px; }
+    .dish-name { font: 600 1.3rem/1.15 var(--serif); min-width: 0; }
+    .leader { flex: 1 0 12px; border-bottom: 1px dotted rgb(201 162 74 / .35); transform: translateY(-.25em); }
+    .price { flex-shrink: 0; white-space: nowrap; font: 500 1.2rem/1.15 var(--serif); font-variant-numeric: lining-nums tabular-nums; color: var(--light-gold); }
+    .description { margin-top: 7px; color: var(--muted); font-size: .85rem; line-height: 1.65; max-width: 580px; }
+    .divider { display: flex; align-items: center; justify-content: center; gap: 17px; margin: 26px 0 0; }
+    .divider::before, .divider::after { content: ""; width: 65px; height: 1px; background: linear-gradient(90deg, transparent, var(--rule)); }
+    .divider::after { transform: rotate(180deg); }
+    .divider .star { width: 25px; height: 25px; }
+    .atmosphere { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 28px; }
+    .atmosphere figure { margin: 0; }
+    .atmosphere img { display: block; width: 100%; height: 130px; object-fit: cover; border: 1px solid var(--rule); filter: brightness(.83); }
+    figcaption { margin-top: 8px; color: var(--muted); text-align: center; font-size: .57rem; letter-spacing: .16em; text-transform: uppercase; }
+    .palace-section { padding-top: 42px; }
+    .palace-card { position: relative; padding: 35px 24px; text-align: center; background: radial-gradient(ellipse at top, #302719, var(--panel) 70%); border: 1px solid var(--gold); }
+    .palace-card::before { content: ""; position: absolute; inset: 6px; border: 1px solid var(--rule); pointer-events: none; }
+    .palace-card .star { margin-bottom: 13px; }
+    .palace-card .title-line { justify-content: center; gap: 12px; padding-top: 10px; border-bottom: 0; }
+    .palace-card h2 { font-size: 2.5rem; }
+    .guest-count { color: var(--muted); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
+    .palace-price { margin: 10px 0 12px; color: var(--light-gold); font: 500 2.7rem/1.1 var(--serif); font-variant-numeric: lining-nums tabular-nums; }
+    .palace-includes { max-width: 540px; margin: auto; color: var(--muted); font-size: .8rem; }
+    .star-section { padding-top: 44px; }
+    .monthly-card { margin-top: 22px; padding: 14px; background: var(--panel); border: 1px solid var(--rule); }
+    .monthly-image { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border: 1px solid var(--gold); border-radius: 6px; }
+    .monthly-copy { padding: 23px 8px 10px; }
+    .monthly-copy > p { color: var(--muted); font-size: .82rem; }
+    .monthly-copy .monthly-price { margin: 16px 0 12px; color: var(--light-gold); font: 500 1.9rem/1.2 var(--serif); font-variant-numeric: lining-nums tabular-nums; }
+    .monthly-copy .star-evening { padding-block: 13px; border-block: 1px solid var(--rule); color: var(--cream); font-size: .75rem; }
+    .ideas-label { margin: 21px 0 9px; font-size: .61rem; }
+    .dish-ideas { list-style: none; padding: 0; color: var(--muted); font-size: .75rem; }
+    .dish-ideas li { padding: 8px 0 8px 15px; position: relative; line-height: 1.6; }
+    .dish-ideas li::before { content: ""; width: 4px; height: 4px; border: 1px solid var(--gold); transform: rotate(45deg); position: absolute; top: 16px; left: 0; }
+    .dish-ideas strong { color: var(--cream); font-weight: 500; }
+    footer { padding: 48px 0 30px; text-align: center; }
+    .footer-wordmark { font: 500 2.6rem/1.1 var(--serif); letter-spacing: .24em; padding-left: .24em; margin: 19px 0 15px; }
+    address { font-style: normal; color: var(--muted); font-size: .78rem; line-height: 1.9; }
+    .phone { display: inline-block; font-size: .93rem; color: var(--light-gold); margin: 14px 0; }
+    .hours { color: var(--muted); font-size: .73rem; }
+    .social { display: flex; align-items: center; justify-content: center; gap: 13px; flex-wrap: wrap; margin: 19px 0 9px; font-size: .75rem; color: var(--light-gold); }
+    .social-label { color: var(--muted); font-size: .63rem; }
+    .colophon { margin-top: 31px; padding-top: 21px; border-top: 1px solid var(--rule); color: var(--muted); font-size: .6rem; line-height: 1.9; }
+    .back-top { display: inline-block; margin-top: 20px; font-size: .6rem; letter-spacing: .13em; color: var(--gold); text-transform: uppercase; }
+    @media (min-width: 700px) {
+      .hero { min-height: 565px; background-position: center 48%; }
+      .hero::before { inset: 26px 34px 45px; }
+      h1 { font-size: 6rem; }
+      .slogan { max-width: none; font-size: 1.85rem; }
+      .hero .kicker { font-size: .7rem; }
+      .menu-section { padding-top: 46px; }
+      .dish { padding-block: 21px; }
+      .dish-name { font-size: 1.45rem; }
+      .price { font-size: 1.35rem; }
+      .leader { margin-inline: 7px; }
+      .divider { margin-top: 33px; }
+      .atmosphere { gap: 16px; margin-top: 35px; }
+      .atmosphere img { height: 210px; }
+      .palace-card { padding: 44px 40px; }
+      .star-section { padding-top: 55px; }
+      .monthly-card { padding: 20px; }
+      .monthly-image { aspect-ratio: 16 / 9; object-position: center 58%; }
+      .monthly-copy { padding: 29px 15px 15px; }
+      footer { padding-top: 62px; }
+    }
+    @media (min-width: 1100px) {
+      .nav-track { max-width: 1160px; justify-content: center; }
+      .nav-label { width: min(1120px, calc(100% - 40px)); }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .nav-track a { transition: none; } }
+  </style>
+</head>
+<body>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><symbol id="eight-point-star" viewBox="0 0 64 64"><path d="M12 12h40v40H12zM32 4 60 32 32 60 4 32Z"/></symbol></defs></svg>
+  <header class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-ornament" aria-hidden="true"><svg class="star"><use href="#eight-point-star"/></svg></div>
+      <p class="kicker">Tashkent · Eastern cuisine</p>
+      <h1>RIZQ</h1>
+      <p class="slogan">An Eastern fairy tale you can taste</p>
+      <p class="kicker menu-label">MENU · PRICES IN UZS</p>
+      <p class="opening">Opening April 2027</p>
+    </div>
+  </header>
+  <nav class="category-nav" aria-label="Menu categories">
+    <div class="nav-label container"><span>The menu</span><span>Scroll to explore</span></div>
+    <div class="nav-track">
+      <a href="#steaks" aria-current="location">Steaks</a><a href="#shashlik">Shashlik</a><a href="#plov">Plov</a><a href="#manti">Manti</a><a href="#samsa-and-pide">Samsa and Pide</a><a href="#salads-and-starters">Salads and Starters</a><a href="#desserts">Desserts</a><a href="#drinks">Drinks</a><a href="#palace-table">Palace Table</a><a href="#star-dish">Star's Dish</a>
+    </div>
+  </nav>
+  <main class="container">
+    <section class="menu-section" id="steaks" aria-labelledby="steaks-title">
+      <header class="section-head"><p class="kicker">From the grill</p><div class="title-line"><h2 id="steaks-title">Steaks</h2><span class="unit">UZS</span></div></header>
+      <ul class="dishes">
+        <li class="dish"><div class="dish-line"><span class="dish-name">Ribeye</span><span class="leader" aria-hidden="true"></span><span class="price">219,000</span></div><p class="description">Marbled beef, grilled, choice of sauce, potatoes</p></li>
+        <li class="dish"><div class="dish-line"><span class="dish-name">Filet Mignon</span><span class="leader" aria-hidden="true"></span><span class="price">199,000</span></div><p class="description">Tender beef tenderloin, herb butter, grilled vegetables</p></li>
+        <li class="dish"><div class="dish-line"><span class="dish-name">Striploin</span><span class="leader" aria-hidden="true"></span><span class="price">179,000</span></div><p class="description">Classic steak with pepper sauce</p></li>
+      </ul>
+      <div class="divider" aria-hidden="true"><svg class="star"><use href="#eight-point-star"/></svg></div>
+    </section>
+    <section class="menu-section" id="shashlik" aria-labelledby="shashlik-title">
+      <header class="section-head"><p class="kicker">Over glowing coals</p><div class="title-line"><h2 id="shashlik-title">Shashlik</h2><span class="unit">UZS</span></div></header>
+      <ul class="dishes">
+        <li class="dish"><div class="dish-line"><span class="dish-name">Lamb Shashlik</span><span class="leader" aria-hidden="true"></span><span class="price">69,000</span></div><p class="description">2 skewers, onion, flatbread</p></li>
+        <li class="dish"><div class="dish-line"><span class="dish-name">Beef Shashlik</span><span class="leader" aria-hidden="true"></span><span class="price">65,000</span></div><p class="description">2 skewers, onion, flatbread</p></li>
+        <li class="dish"><div class="dish-line"><span class="dish-name">Chicken Shashlik</span><span class="leader" aria-hidden="true"></span><span class="price">49,000</span></div><p class="description">2 skewers, marinade, dipping sauce</p></li>
+        <li class="dish"><div class="dish-line"><span class="dish-name">Lula Kebab</span><span class="leader" aria-hidden="true"></span><span class="price">55,000</span></div><p class="description">2 skewers, red onion, fresh herbs</p></li>
+      </ul>
+      <div class="divider" aria-hidden="true"><svg class="star"><use href="#eight-point-star"/></svg></div>
+    </section>
+    <section class="menu-section" id="plov" aria-labelledby="plov-title">
+      <header class="section-head"><p class="kicker">At the heart of the table</p><div class="title-line"><h2 id="plov-title">Plov</h2><span class="unit">UZS</span></div></header>
+      <ul class="dishes">
+        <li class="dish"><div class="dish-line"><span class="dish-name">Festive Plov</span><span class="leader" aria-hidden="true"></span><span class="price">75,000</span></div><p class="description">Lamb, chickpeas, raisins, quince, boiled quail egg</p></li>
+        <li class="dish"><div class="dish-line"><span class="dish-name">Chaykhana Plov</span><span class="leader" aria-hidden="true"></span><span class="price">59,000</span></div><p class="description">Beef, yellow carrots, garlic</p></li>
+      </ul>
+      <div class="divider" aria-hidden="true"><svg class="star"><use href="#eight-point-star"/></svg></div>
+    </section>
+    <section class="menu-section" id="manti" aria-labelledby="manti-title">
+      <header class="section-head"><p class="kicker">Eastern classics</p><div class="title-line"><h2 id="manti-title">Manti</h2><span class="unit">UZS</span></div></header>
+      <ul class="dishes">
+        <li class="dish"><div class="dish-line"><span class="dish-name">Meat Manti</span><span class="leader" aria-hidden="true"></span><span class="price">49,000</span></div><p class="description">5 pieces, minced lamb with onion, sour cream</p></li>
+        <li class="dish"><div class="dish-line"><span class="dish-name">Pumpkin Manti</span><span class="leader" aria-hidden="true"></span><span class="price">39,000</span></div><p class="description">5 pieces, pumpkin with onion, served with butter</p></li>
+      </ul>
+      <div class="divider" aria-hidden="true"><svg class="star"><use href="#eight-point-star"/></svg></div>
+    </section>
+    <section class="menu-section" id="samsa-and-pide" aria-labelledby="samsa-title">
+      <header class="section-head"><p class="kicker">Warm from the oven</p><div class="title-line"><h2 id="samsa-title">Samsa and Pide</h2><span class="unit">UZS</span></div><p class="section-note">Samsa baked in a tandoor.</p></header>
+      <ul class="dishes">
+        <li class="dish"><div class="dish-line"><span class="dish-name">Meat Samsa</span><span class="leader" aria-hidden="true"></span><span class="price">17,000</span></div><p class="description">Baked in a tandoor, lamb and tail fat</p></li>
+        <li class="dish"><div class="dish-line"><span class="dish-name">Pumpkin Samsa</span><span class="leader" aria-hidden="true"></span><span class="price">15,000</span></div><p class="description">Baked in a tandoor, pumpkin and onion</p></li>
+        <li class="dish"><div class="dish-line"><span class="dish-name">Chicken and Cheese Samsa</span><span class="leader" aria-hidden="true"></span><span class="price">16,000</span></div><p class="description">Baked in a tandoor, tender filling</p></li>
+        <li class="dish"><div class="dish-line"><span class="dish-name">Pide</span><span class="leader" aria-hidden="true"></span><span class="price">55,000</span></div><p class="description">Turkish flatbread with minced lamb and cheese</p></li>
+      </ul>
+      <div class="divider" aria-hidden="true"><svg class="star"><use href="#eight-point-star"/></svg></div>
+    </section>
+    <section class="menu-section" id="salads-and-starters" aria-labelledby="salads-title">
+      <header class="section-head"><p class="kicker">To begin</p><div class="title-line"><h2 id="salads-title">Salads and Starters</h2><span class="unit">UZS</span></div></header>
+      <ul class="dishes">
+        <li class="dish"><div class="dish-line"><span class="dish-name">Achichuk</span><span class="leader" aria-hidden="true"></span><span class="price">29,000</span></div><p class="description">Tomatoes, onion, herbs</p></li>
+        <li class="dish"><div class="dish-line"><span class="dish-name">Caesar with Grilled Chicken</span><span class="leader" aria-hidden="true"></span><span class="price">59,000</span></div><p class="description">Romaine, parmesan, croutons, chicken from the grill</p></li>
+        <li class="dish"><div class="dish-line"><span class="dish-name">Hummus with Warm Flatbread</span><span class="leader" aria-hidden="true"></span><span class="price">39,000</span></div><p class="description">Chickpea paste, olive oil, paprika</p></li>
+      </ul>
+      <div class="divider" aria-hidden="true"><svg class="star"><use href="#eight-point-star"/></svg></div>
+    </section>
+    <section class="menu-section" id="desserts" aria-labelledby="desserts-title">
+      <header class="section-head"><p class="kicker">A sweet finale</p><div class="title-line"><h2 id="desserts-title">Desserts</h2><span class="unit">UZS</span></div></header>
+      <ul class="dishes">
+        <li class="dish"><div class="dish-line"><span class="dish-name">Warm Baklava with Ice Cream</span><span class="leader" aria-hidden="true"></span><span class="price">39,000</span></div><p class="description">Pistachio baklava, vanilla ice cream</p></li>
+        <li class="dish"><div class="dish-line"><span class="dish-name">Kunafa</span><span class="leader" aria-hidden="true"></span><span class="price">45,000</span></div><p class="description">Crispy pastry with cheese and syrup, served hot</p></li>
+        <li class="dish"><div class="dish-line"><span class="dish-name">Halva and Nuts Plate</span><span class="leader" aria-hidden="true"></span><span class="price">35,000</span></div><p class="description">Three kinds of halva, dried fruit, nuts</p></li>
+      </ul>
+      <div class="divider" aria-hidden="true"><svg class="star"><use href="#eight-point-star"/></svg></div>
+    </section>
+    <section class="menu-section" id="drinks" aria-labelledby="drinks-title">
+      <header class="section-head"><p class="kicker">Pour and linger</p><div class="title-line"><h2 id="drinks-title">Drinks</h2><span class="unit">UZS</span></div></header>
+      <ul class="dishes">
+        <li class="dish"><div class="dish-line"><span class="dish-name">Pot of Tea</span><span class="leader" aria-hidden="true"></span><span class="price">25,000</span></div><p class="description">Black, green or with mountain herbs</p></li>
+        <li class="dish"><div class="dish-line"><span class="dish-name">House Lemonade</span><span class="leader" aria-hidden="true"></span><span class="price">35,000</span></div><p class="description">Citrus or berry, with tea</p></li>
+        <li class="dish"><div class="dish-line"><span class="dish-name">Fresh Juice</span><span class="leader" aria-hidden="true"></span><span class="price">29,000</span></div><p class="description">Orange, pomegranate or carrot</p></li>
+        <li class="dish"><div class="dish-line"><span class="dish-name">Coffee</span><span class="leader" aria-hidden="true"></span><span class="price">25,000 to 35,000</span></div><p class="description">Espresso, americano, cappuccino</p></li>
+      </ul>
+      <div class="divider" aria-hidden="true"><svg class="star"><use href="#eight-point-star"/></svg></div>
+    </section>
+    <section class="palace-section" id="palace-table" aria-labelledby="palace-title">
+      <div class="palace-card">
+        <svg class="star" aria-hidden="true"><use href="#eight-point-star"/></svg>
+        <p class="kicker">Made to be shared</p>
+        <div class="title-line"><h2 id="palace-title">Palace Table</h2><span class="unit">UZS</span></div>
+        <p class="guest-count">For eight guests</p>
+        <p class="palace-price">2,400,000</p>
+        <p class="palace-includes">Starters, festive plov served in a kazan, two kinds of shashlik, samsa from the tandoor, tea and desserts.</p>
+      </div>
+      <div class="atmosphere">
+        <figure><img src="img/03-divan-main-hall.jpg" width="960" height="640" loading="lazy" alt="The Divan hall with gilded arches, blue tiles and softly lit dining tables"><figcaption>The Divan</figcaption></figure>
+        <figure><img src="img/06-garden-courtyard.jpg" width="960" height="640" loading="lazy" alt="The Garden courtyard with a fountain beneath the glass roof"><figcaption>The Garden</figcaption></figure>
+      </div>
+      <div class="divider" aria-hidden="true"><svg class="star"><use href="#eight-point-star"/></svg></div>
+    </section>
+    <section class="star-section" id="star-dish" aria-labelledby="star-title">
+      <header class="section-head"><p class="kicker">One month only</p><div class="title-line"><h2 id="star-title">Star's Dish of the Month</h2><span class="unit">UZS</span></div></header>
+      <div class="monthly-card">
+        <img class="monthly-image" src="img/08-dish-of-the-month.jpg" width="960" height="640" loading="lazy" alt="Eastern dishes and sweets presented on an engraved brass tray at RIZQ">
+        <div class="monthly-copy">
+          <p>A limited dish or drink, created with the head chef and a guest star during tastings. Available for one month only, then a new collaboration takes its place.</p>
+          <p class="monthly-price">69,000 to 89,000</p>
+          <p class="star-evening">Star evening on the 15th of each month</p>
+          <p class="kicker ideas-label">Dish ideas · Final version approved with the star</p>
+          <ul class="dish-ideas">
+            <li><strong>Premium plov:</strong> plov with tenderloin and quail egg, served to the table in a kazan.</li>
+            <li><strong>Steak collab:</strong> a steak with an unusual sauce (pomegranate, cumin, black pepper), tuned to the star's taste.</li>
+            <li><strong>Signature drink:</strong> a citrus or berry lemonade with tea that looks great in stories.</li>
+            <li><strong>Dessert of the month:</strong> warm baklava with ice cream, a light end to the evening.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="container" id="footer">
+    <div class="divider" aria-hidden="true"><svg class="star"><use href="#eight-point-star"/></svg></div>
+    <p class="footer-wordmark">RIZQ</p>
+    <address>105 Buyuk Ipak Yo'li street<br>Mirzo-Ulugbek district, Tashkent</address>
+    <a class="phone" href="tel:+998712304015">+998 71 230-40-15</a>
+    <p class="hours">Every day, 12:00 to 23:00<br>Until midnight on the 15th of each month</p>
+    <div class="social"><span>@rizq.tashkent</span><span class="social-label">Instagram / Telegram</span></div>
+    <p class="opening">Opening April 2027</p>
+    <p class="colophon">Concept restaurant. Student business plan, Tashkent State University of Economics, group MO-31, 2026.</p>
+    <a class="back-top" href="#hero">Back to the palace</a>
+  </footer>
+  <script>
+    const chips = [...document.querySelectorAll('.nav-track a')];
+    const markCategory = () => {
+      const edge = document.querySelector('.category-nav').getBoundingClientRect().height + 60;
+      const current = [...chips].reverse().find(link => document.querySelector(link.hash).getBoundingClientRect().top <= edge) || chips[0];
+      chips.forEach(link => link === current ? link.setAttribute('aria-current', 'location') : link.removeAttribute('aria-current'));
+    };
+    window.addEventListener('scroll', markCategory, { passive: true });
+  </script>
+</body>
+</html>
